@@ -117,3 +117,16 @@ function gerarMensagemPoolish(proporcaoPoolish, fermentoPoolish, quantidade, pes
             Sal: ${(farinhaTotal * sal).toFixed(2)}g<br>
             Mel: ${(farinhaTotal * mel).toFixed(2)}g<br>`;
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+        .then((reg) => {
+            console.log('Service Worker registrado!', reg);
+
+            // Forçar atualização do SW
+            if (reg.waiting) {
+                reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+        })
+        .catch((err) => console.log('Erro no registro:', err));
+}
