@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Massa Pizza Napolitana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora Massa Pizza Napolitana</h2>
+
+    <label for="prefermento">Fermento:</label>
+    <select id="prefermento" onchange="atualizarCampos()">
+        <option value="">Direto</option>
+        <option value="biga">Biga</option>
+        <option value="poolish">Poolish</option>
+    </select>
+    
+    <div id="bigaCampos" style="display: none;">
+        <label for="bigaQuantidade">Quantidade de Biga (%):</label>
+        <input type="number" id="bigaQuantidade" placeholder="Exemplo: 10-100%">
+    
+        <label for="bigaHidratacao">Hidratação da Biga (%):</label>
+        <input type="number" id="bigaHidratacao" placeholder="Exemplo: 45-60">
+    
+        <label for="bigaFermento">Fermento na Biga (%):</label>
+        <input type="number" id="bigaFermento" placeholder="Exemplo: 0.3">
+    </div>
+    
+    <div id="poolishCampos" style="display: none;">
+        <label for="poolishQuantidade">Quantidade de Poolish (%):</label>
+        <input type="number" id="poolishQuantidade" placeholder="Exemplo: 50">
+    
+        <label for="poolishFermento">Fermento no Poolish (%):</label>
+        <input type="number" id="poolishFermento" placeholder="Exemplo: 0.3">
+    </div>
+    <br><br>
+    <label>Quantidade de massas (unidades):</label>
+    <input type="number" id="quantidade" placeholder="Exemplo: 3"><br>
+
+    <label>Peso por unidade (g):</label>
+    <input type="number" id="peso" placeholder="Exemplo: 270"><br>
+
+    <label>Hidratação (%):</label>
+    <input type="number" id="hidratacao" placeholder="Exemplo: 70"><br>
+
+    <label>Sal (%):</label>
+    <input type="number" id="sal" placeholder="Exemplo: 2.8"><br>
+
+    <label>Fermento (%):</label>
+    <input type="number" id="fermento" placeholder="Exemplo: 0.3"><br>
+
+    <label>Mel (%) Opcional:</label>
+    <input type="number" id="mel" placeholder="Exemplo: 0.8"><br>
+
+    <button onclick="calcularMassa()">Calcular</button>
+
+    <h3>Resultado:</h3>
+    <div id="resultado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
